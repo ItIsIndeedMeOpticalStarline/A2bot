@@ -40,7 +40,7 @@ async def on_message(message):
         freedomDict[message.author] = 0
 
     if userMessage.lower() == 'shut the fuck up a2':
-        if (prevAuthor != None):
+        if (prevAuthor != None and freedomDict[prevAuthor] <= 0):
             randNum = GetRand(0, 100)
             freedomDict[prevAuthor] = randNum + 1
             if (randNum == 0):
