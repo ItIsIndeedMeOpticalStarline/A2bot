@@ -42,8 +42,13 @@ async def on_message(message):
     if userMessage.lower() == 'shut the fuck up a2':
         if (prevAuthor != None):
             randNum = GetRand(0, 100)
-            freedomDict[prevAuthor] = randNum
-            await message.channel.send(f'Ok {prevAuthor.mention}, I will shut up for {randNum} messages')
+            freedomDict[prevAuthor] = randNum + 1
+            if (randNum == 0):
+                await message.channel.send(f'Cope, seethe, mald')
+            elif (randNum == 1):
+                await message.channel.send(f'Ok {prevAuthor.mention}, I will shut up for {randNum} message')
+            else:
+                await message.channel.send(f'Ok {prevAuthor.mention}, I will shut up for {randNum} messages')
 
     if freedomDict[message.author] <= 0:
         await message.channel.send('Ratio')
